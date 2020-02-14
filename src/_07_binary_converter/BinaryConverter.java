@@ -1,28 +1,40 @@
 package _07_binary_converter;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class BinaryConverter {
-	public static void main(String[] args) {
-		/*
-		JFrame frame = new JFrame();
-		JPanel panel = new JPanel();
+public class BinaryConverter implements ActionListener {
+	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
+	JLabel label = new JLabel();
+	JTextField answer = new JTextField(20);
+	public void start() {
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(panel);
-		JTextField answer = new JTextField(20);
 		panel.add(answer);
-		frame.pack();
 		JButton button = new JButton();
-		button.addMouseListener(null);
-		*/
+		button.setText("convert");
+		panel.add(button);
+		button.addActionListener(this);
+		panel.add(label);
+		frame.pack();
 		
+
+		/*
 		String myinput = JOptionPane.showInputDialog("Enter a binary number with 8 digits (ex.01000001)");
 		String myoutput = convert(myinput);
 		System.out.println(myoutput);
-		
+		*/
 	}
 
 	static String convert(String input) {
@@ -43,5 +55,12 @@ public class BinaryConverter {
 			JOptionPane.showMessageDialog(null, "Enter a binary, silly!!!");
 			return "-";
 		}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		label.setText(convert(answer.getText()));
+		frame.pack();
 	}
 }
