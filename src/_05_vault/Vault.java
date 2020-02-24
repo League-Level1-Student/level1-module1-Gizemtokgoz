@@ -1,7 +1,12 @@
 package _05_vault;
 
+import javax.swing.JOptionPane;
+
 public class Vault {
-	int code = 1234;
+	int code;
+	Vault(int c) {
+		code = c;
+	}
 
 	boolean tryCode(int code) {
 		if (code == this.code) {
@@ -9,9 +14,5 @@ public class Vault {
 		}
 		return false;
 	}
-
-	public static void main(String[] args) {
-		Vault v = new Vault();
-		System.out.println(v.tryCode());
-	}
 }
+
